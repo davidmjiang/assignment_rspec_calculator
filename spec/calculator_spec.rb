@@ -5,8 +5,8 @@ describe Calculator do
   # before(:each) do 
   #   calc = Calculator.new
   # end
-  let(:calc) {Calculator.new}
-
+  let(:calc) { Calculator.new }
+  let(:new_calc) { Calculator.new(true) }
   describe '#add' do 
     it "adds positive numbers" do
       expect(calc.add(4,5)).to eq(9)
@@ -90,7 +90,30 @@ describe Calculator do
 
     it "returns 2 digit decimals for non-round roots" do
       expect(calc.sqrt(4.5)).to be_within(0.1).of (2.12)
-      expect(calc.sqrt(4.5)).to match(/\d+\.\d\d/)
+      # expect(calc.sqrt(4.5)).to match(/\d+\.\d\d/)
+    end
+  end
+
+  describe '#memory' do 
+    it "returns nil when no object is in memory" do
+      expect(calc.memory).to eq(nil)
+    end
+    
+    it "returns the object in memory when memory is set" do
+      calc.memory=(7)
+      expect(calc.memory).to eq(7)
+    end
+
+    it "clears the memory after returning" do
+      calc.memory=(3)
+      calc.memory
+      expect(calc.memory).to be_nil
+    end
+  end
+  
+  describe "#stringify" do 
+    it "returns output as a string" do
+      expect(new_calc.add(2,3)).to eq("5")
     end
   end
 
