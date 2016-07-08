@@ -53,13 +53,19 @@ describe Calculator do
       expect{calc.divide(2,0)}.to raise_error(ArgumentError)
     end
 
-    it "returns and integer if there is no remainder" do
+    it "divides 2 numbers" do
       expect(calc.divide(4,2)).to eq(2)
+    end
+
+    it "returns and integer if there is no remainder" do
       expect(calc.divide(4,2)).to be_an(Integer)
     end
 
-    it "returns a float if there is a remainder" do
+    it "divides numbers and returns a decimal" do
       expect(calc.divide(5,2)).to be_within(0.1).of (2.5)
+    end
+
+    it "returns a float if there is a remainder" do
       expect(calc.divide(5,2)).to be_a(Float)
     end
   end
@@ -87,8 +93,11 @@ describe Calculator do
       expect{calc.sqrt(-3)}.to raise_error(ArgumentError)
     end
 
-    it "returns 2 digit decimals for non-round roots" do
+    it "returns square root of a decimal" do
       expect(calc.sqrt(4.5)).to be_within(0.1).of (2.12)
+    end
+
+    it "returns 2 digit decimals for non-round roots" do
       expect(calc.sqrt(4.5).to_s).to match(/\d+\.\d\d/)
     end
   end
