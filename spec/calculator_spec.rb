@@ -5,7 +5,7 @@ describe Calculator do
 
   let(:calc) { Calculator.new }
   let(:new_calc) { Calculator.new(true) }
-  
+
   describe '#add' do 
     it "adds positive numbers" do
       expect(calc.add(4,5)).to eq(9)
@@ -89,7 +89,7 @@ describe Calculator do
 
     it "returns 2 digit decimals for non-round roots" do
       expect(calc.sqrt(4.5)).to be_within(0.1).of (2.12)
-      # expect(calc.sqrt(4.5)).to match(/\d+\.\d\d/)
+      expect(calc.sqrt(4.5).to_s).to match(/\d+\.\d\d/)
     end
   end
 
