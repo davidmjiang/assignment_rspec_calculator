@@ -2,11 +2,10 @@ require 'calculator'
 
 
 describe Calculator do 
-  # before(:each) do 
-  #   calc = Calculator.new
-  # end
+
   let(:calc) { Calculator.new }
   let(:new_calc) { Calculator.new(true) }
+  
   describe '#add' do 
     it "adds positive numbers" do
       expect(calc.add(4,5)).to eq(9)
